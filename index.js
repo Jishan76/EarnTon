@@ -22,6 +22,34 @@ const User = mongoose.model('User', userSchema);
 
 const userStates = {};
 
+
+
+
+
+
+const bodyParser = require('body-parser');
+
+// Replace with your Telegram bot token and your domain
+const token = '7255365749:AAFL9d_6_U1XH9s7oD87A0qJ0Uu_qnx9Ios';
+const webhookUrl = 'https://earnton.onrender.com/yourwebhookpath';
+
+// Create a new TelegramBot instance
+const bot = new TelegramBot(token);
+
+
+
+app.use(bodyParser.json());
+
+app.post('/yourwebhookpath', (req, res) => {
+    bot.processUpdate(req.body);
+    res.sendStatus(200);
+});
+
+// Start server
+
+// Set the webhook
+bot.setWebHook(webhookUrl);
+
 // Function to check if user is a member of the required channel
 const isUserMemberOfChannel = async (userId) => {
     try {
