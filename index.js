@@ -33,8 +33,6 @@ const bodyParser = require('body-parser');
 const webhookUrl = 'https://earnton.onrender.com/yourwebhookpath';
 
 // Create a new TelegramBot instance
-const bot = new TelegramBot(token);
-
 
 
 app.use(bodyParser.json());
