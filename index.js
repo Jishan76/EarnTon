@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const mongoose = require('mongoose');
 
 // Replace with your Telegram bot token
-const token = 'YOUR_TELEGRAM_BOT_TOKEN';
+const token = '7255365749:AAFL9d_6_U1XH9s7oD87A0qJ0Uu_qnx9Ios';
 const bot = new TelegramBot(token, {polling: true});
 
 // Connect to MongoDB
@@ -44,7 +44,7 @@ bot.onText(/\/start (.+)/, async (msg, match) => {
             reply_markup: {
                 inline_keyboard: [
                     [
-                        { text: 'Join Channel', url: 'https://t.me/your_channel' },
+                        { text: 'Join Channel', url: 'https://t.me/earntonrewards' },
                         { text: 'Your Invite URL', callback_data: 'invite_url' }
                     ],
                     [
@@ -76,7 +76,7 @@ bot.on('callback_query', async (callbackQuery) => {
         }
 
         if (data === 'invite_url') {
-            const inviteUrl = `https://t.me/your_bot_username?start=${chatId}`;
+            const inviteUrl = `https://t.me/earntonbot?start=${chatId}`;
             bot.sendMessage(chatId, `Your invite URL: ${inviteUrl}`);
         } else if (data === 'balance') {
             bot.sendMessage(chatId, `Your balance is ${user.balance}`);
@@ -117,7 +117,7 @@ bot.on('message', async (msg) => {
         user.balance -= amount;
         await user.save();
 
-        bot.sendMessage(chatId, `Withdrawal of ${amount} to wallet ${userStates[chatId].walletAddress} has been processed.`);
+        bot.sendMessage(chatId, `Withdrawal of ${amount} to wallet ${userStates[chatId].walletAddress} has been processed. Payment will be received under 72 hours`);
 
         // Here, you would typically send the withdrawal request to your payment processing system
 
