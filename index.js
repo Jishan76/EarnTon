@@ -30,7 +30,6 @@ const userStates = {};
 const bodyParser = require('body-parser');
 
 // Replace with your Telegram bot token and your domain
-const token = '7255365749:AAFL9d_6_U1XH9s7oD87A0qJ0Uu_qnx9Ios';
 const webhookUrl = 'https://earnton.onrender.com/yourwebhookpath';
 
 // Create a new TelegramBot instance
