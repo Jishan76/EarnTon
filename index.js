@@ -6,7 +6,7 @@ const express = require('express');
 const token = '7255365749:AAFL9d_6_U1XH9s7oD87A0qJ0Uu_qnx9Ios';
 const mongoUri = 'mongodb+srv://aminulzisan76:aminulzisan@cluster0.cxo0nw4.mongodb.net/tgbot2';
 const requiredChannel = '@earntonrewards';
-
+const app = express();
 const bot = new TelegramBot(token, { polling: true });
 
 // Connect to MongoDB
@@ -174,7 +174,7 @@ bot.on('message', async (msg) => {
 });
 
 // Set up an Express server
-const app = express();
+
 const port = 3000;
 
 app.get('/', (req, res) => {
